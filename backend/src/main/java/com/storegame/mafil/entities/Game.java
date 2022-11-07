@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="tb_game")
+@Table(name = "tb_game")
 public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,6 +25,7 @@ public class Game implements Serializable {
 	private String image;
 	private String linkVideo;
 	private Integer qtdStok;
+	private Double metacritcNote;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant dateLanc;
@@ -33,7 +34,7 @@ public class Game implements Serializable {
 	}
 
 	public Game(Long id, String title, String description, Double price, String image, String linkVideo,
-			Integer qtdStok, Instant dateLanc) {
+			Integer qtdStok, Double metacritcNote, Instant dateLanc) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -41,6 +42,7 @@ public class Game implements Serializable {
 		this.image = image;
 		this.linkVideo = linkVideo;
 		this.qtdStok = qtdStok;
+		this.metacritcNote = metacritcNote;
 		this.dateLanc = dateLanc;
 	}
 
@@ -106,6 +108,14 @@ public class Game implements Serializable {
 
 	public void setDateLanc(Instant dateLanc) {
 		this.dateLanc = dateLanc;
+	}
+
+	public Double getMetacritcNote() {
+		return metacritcNote;
+	}
+
+	public void setMetacritcNote(Double metacritcNote) {
+		this.metacritcNote = metacritcNote;
 	}
 
 	@Override
