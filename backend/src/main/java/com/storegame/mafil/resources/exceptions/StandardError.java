@@ -7,6 +7,7 @@ public class StandardError {
 	private Instant timeStamp;
 	private Integer status;
 	private String error;
+	private String mensage;
 	private String path;
 
 	public StandardError() {
@@ -34,6 +35,14 @@ public class StandardError {
 
 	public void setError(String error) {
 		this.error = error;
+	}
+
+	public String getMensage() {
+		return mensage;
+	}
+
+	public void setMensage(String mensage) {
+		this.mensage = mensage;
 	}
 
 	public String getPath() {

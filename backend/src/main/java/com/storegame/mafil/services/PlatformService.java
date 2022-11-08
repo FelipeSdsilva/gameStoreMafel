@@ -29,7 +29,7 @@ public class PlatformService {
 
 	@Transactional(readOnly = true)
 	public PlatformDTO findById(Long id) {
-		Platform entity = platRepository.getReferenceById(id);
+		Platform entity = platRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new PlatformDTO(entity);
 	}
 

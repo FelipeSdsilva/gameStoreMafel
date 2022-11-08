@@ -20,6 +20,8 @@ public class Game implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
+	
+	@Column(columnDefinition = "TEXT")
 	private String description;
 	private Double price;
 	private String image;
