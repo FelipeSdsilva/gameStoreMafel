@@ -20,14 +20,14 @@ public class Game implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String description;
 	private Double price;
 	private String image;
 	private String linkVideo;
 	private Integer qtdStok;
-	private Double metacritcNote;
+	private Double metacriticNote;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant dateLanc;
@@ -36,7 +36,7 @@ public class Game implements Serializable {
 	}
 
 	public Game(Long id, String title, String description, Double price, String image, String linkVideo,
-			Integer qtdStok, Double metacritcNote, Instant dateLanc) {
+			Integer qtdStok, Double metacriticNote, Instant dateLanc) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -44,7 +44,7 @@ public class Game implements Serializable {
 		this.image = image;
 		this.linkVideo = linkVideo;
 		this.qtdStok = qtdStok;
-		this.metacritcNote = metacritcNote;
+		this.metacriticNote = metacriticNote;
 		this.dateLanc = dateLanc;
 	}
 
@@ -104,20 +104,20 @@ public class Game implements Serializable {
 		this.qtdStok = qtdStok;
 	}
 
+	public Double getMetacriticNote() {
+		return metacriticNote;
+	}
+
+	public void setMetacriticNote(Double metacriticNote) {
+		this.metacriticNote = metacriticNote;
+	}
+
 	public Instant getDateLanc() {
 		return dateLanc;
 	}
 
 	public void setDateLanc(Instant dateLanc) {
 		this.dateLanc = dateLanc;
-	}
-
-	public Double getMetacritcNote() {
-		return metacritcNote;
-	}
-
-	public void setMetacritcNote(Double metacritcNote) {
-		this.metacritcNote = metacritcNote;
 	}
 
 	@Override

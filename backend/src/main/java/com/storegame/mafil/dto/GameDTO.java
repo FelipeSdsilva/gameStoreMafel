@@ -15,14 +15,14 @@ public class GameDTO implements Serializable {
 	private String image;
 	private String linkVideo;
 	private Integer qtdStok;
-	private Double metacritNote;
+	private Double metacriticNote;
 	private Instant dateLanc;
 
 	public GameDTO() {
 	}
 
 	public GameDTO(Long id, String title, String description, Double price, String image, String linkVideo,
-			Integer qtdStok, Double metacritNote, Instant dateLanc) {
+			Integer qtdStok, Double metacriticNote, Instant dateLanc) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -30,7 +30,7 @@ public class GameDTO implements Serializable {
 		this.image = image;
 		this.linkVideo = linkVideo;
 		this.qtdStok = qtdStok;
-		this.metacritNote = metacritNote;
+		this.metacriticNote = metacriticNote;
 		this.dateLanc = dateLanc;
 	}
 
@@ -42,7 +42,7 @@ public class GameDTO implements Serializable {
 		image = entity.getImage();
 		linkVideo = entity.getLinkVideo();
 		qtdStok = entity.getQtdStok();
-		metacritNote = entity.getMetacritcNote();
+		metacriticNote = entity.getMetacriticNote();
 		dateLanc = entity.getDateLanc();
 	}
 
@@ -102,12 +102,12 @@ public class GameDTO implements Serializable {
 		this.qtdStok = qtdStok;
 	}
 
-	public Double getMetacritNote() {
-		return metacritNote;
+	public Double getMetacriticNote() {
+		return metacriticNote;
 	}
 
-	public void setMetacritNote(Double metacritNote) {
-		this.metacritNote = metacritNote;
+	public void setMetacriticNote(Double metacriticNote) {
+		this.metacriticNote = metacriticNote;
 	}
 
 	public Instant getDateLanc() {

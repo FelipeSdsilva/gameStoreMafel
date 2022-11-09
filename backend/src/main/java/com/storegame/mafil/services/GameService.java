@@ -72,7 +72,7 @@ public class GameService {
 		entity.setImage(gameDto.getImage());
 		entity.setLinkVideo(gameDto.getLinkVideo());
 		entity.setQtdStok(gameDto.getQtdStok());
-		entity.setMetacritcNote(gameDto.getMetacritNote());
+		entity.setMetacriticNote(gameDto.getMetacriticNote());
 		entity.setDateLanc(gameDto.getDateLanc());
 
 	}
