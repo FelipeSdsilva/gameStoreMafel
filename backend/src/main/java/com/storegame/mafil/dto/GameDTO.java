@@ -2,6 +2,8 @@ package com.storegame.mafil.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.storegame.mafil.entities.Game;
 
@@ -17,6 +19,10 @@ public class GameDTO implements Serializable {
 	private Integer qtdStok;
 	private Double metacriticNote;
 	private Instant dateLanc;
+	
+	private Set<GenreDTO> genres = new HashSet<>();
+
+	private Set<PlatformDTO> platforms = new HashSet<>();
 
 	public GameDTO() {
 	}
@@ -116,5 +122,13 @@ public class GameDTO implements Serializable {
 
 	public void setDateLanc(Instant dateLanc) {
 		this.dateLanc = dateLanc;
+	}
+
+	public Set<GenreDTO> getGenres() {
+		return genres;
+	}
+
+	public Set<PlatformDTO> getPlatforms() {
+		return platforms;
 	}
 }

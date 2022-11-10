@@ -1,6 +1,8 @@
 package com.storegame.mafil.dto;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.storegame.mafil.entities.Genre;
 
@@ -10,6 +12,8 @@ public class GenreDTO implements Serializable {
 	private Long id;
 	private String name;
 
+	private Set<GameDTO> games = new HashSet<>();
+	
 	public GenreDTO() {
 	}
 
@@ -37,5 +41,9 @@ public class GenreDTO implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Set<GameDTO> getGames() {
+		return games;
 	}
 }

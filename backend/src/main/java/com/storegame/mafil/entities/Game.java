@@ -2,13 +2,18 @@ package com.storegame.mafil.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,7 +36,19 @@ public class Game implements Serializable {
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant dateLanc;
-
+	
+	@ManyToMany
+	@JoinTable(name = "tb_game_genre",
+			joinColumns = @JoinColumn(name = "game_id"),
+			inverseJoinColumns = @JoinColumn(name = "genre_id"))
+	private Set<Genre> genres = new HashSet<>();
+	
+	@ManyToMany
+	@JoinTable(name = "tb_game_platform",
+			joinColumns = @JoinColumn(name = "game_id"),
+			inverseJoinColumns = @JoinColumn(name = "platform_id"))
+	private Set<Platform> platforms = new HashSet<>();
+	
 	public Game() {
 	}
 
@@ -118,6 +135,14 @@ public class Game implements Serializable {
 
 	public void setDateLanc(Instant dateLanc) {
 		this.dateLanc = dateLanc;
+	}
+
+	public Set<Genre> getGenres() {
+		return genres;
+	}
+
+	public Set<Platform> getPlatforms() {
+		return platforms;
 	}
 
 	@Override
