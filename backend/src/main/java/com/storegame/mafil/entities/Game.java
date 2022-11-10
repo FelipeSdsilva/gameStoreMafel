@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -48,6 +50,13 @@ public class Game implements Serializable {
 			joinColumns = @JoinColumn(name = "game_id"),
 			inverseJoinColumns = @JoinColumn(name = "platform_id"))
 	private Set<Platform> platforms = new HashSet<>();
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createAt;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updateAt;
+	
 	
 	public Game() {
 	}
@@ -143,8 +152,26 @@ public class Game implements Serializable {
 
 	public Set<Platform> getPlatforms() {
 		return platforms;
+	}	
+
+	public Instant getCreateAt() {
+		return createAt;
 	}
 
+	public Instant getUpdateAt() {
+		return updateAt;
+	}
+
+	@PrePersist
+	public void prePersist() {
+		createAt = Instant.now();
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		updateAt = Instant.now();
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

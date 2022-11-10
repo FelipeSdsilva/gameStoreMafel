@@ -28,7 +28,7 @@ INSERT INTO tb_platform (name) VALUES ('Xbox One');
 
 INSERT INTO tb_game_genre(game_id, genre_id) VALUES (1,1);
 INSERT INTO tb_game_genre(game_id, genre_id) VALUES (1,2);
-INSERT INTO tb_game_genre(game_id, genre_id) VALUES (1,3);
+INSERT INTO tb_game_genre(game_id, genre_id) VALUES (1,4);
 INSERT INTO tb_game_genre(game_id, genre_id) VALUES (2,1);
 INSERT INTO tb_game_genre(game_id, genre_id) VALUES (2,8);
 INSERT INTO tb_game_genre(game_id, genre_id) VALUES (3,1);

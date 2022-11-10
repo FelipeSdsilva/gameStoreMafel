@@ -1,30 +1,40 @@
 package com.storegame.mafil.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="tb_platform")
-public class Platform implements Serializable{
+@Table(name = "tb_platform")
+public class Platform implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	
+
 	@ManyToMany(mappedBy = "platforms")
 	private Set<Game> games = new HashSet<>();
-	
+
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createAt;
+
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updateAt;
+
 	public Platform() {
 	}
 
@@ -51,6 +61,24 @@ public class Platform implements Serializable{
 
 	public Set<Game> getGames() {
 		return games;
+	}
+
+	public Instant getCreateAt() {
+		return createAt;
+	}
+
+	public Instant getUpdateAt() {
+		return updateAt;
+	}
+
+	@PrePersist
+	public void prePersist() {
+		createAt = Instant.now();
+	}
+
+	@PreUpdate
+	public void preUpdate() {
+		updateAt = Instant.now();
 	}
 
 	@Override

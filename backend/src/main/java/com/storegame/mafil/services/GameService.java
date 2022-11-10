@@ -1,8 +1,7 @@
 package com.storegame.mafil.services;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -60,7 +59,7 @@ public class GameService {
 			gameRepository.deleteById(id);
 		} catch (EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException("Id not found " + id);
-		} catch (EntityNotFoundException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity violation ");
 		}
 	}
