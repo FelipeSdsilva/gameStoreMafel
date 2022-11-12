@@ -1,8 +1,8 @@
 package com.storegame.mafil.dto;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.storegame.mafil.entities.Game;
 import com.storegame.mafil.entities.Platform;
@@ -13,7 +13,7 @@ public class PlatformDTO implements Serializable {
 	private Long id;
 	private String name;
 	
-	private Set<Game> games = new HashSet<>();
+	private List<Game> games = new ArrayList<>();
 	
 	public PlatformDTO() {
 	}
@@ -44,7 +44,7 @@ public class PlatformDTO implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Game> getGames() {
+	public List<Game> getGames() {
 		return games;
 	}
 }

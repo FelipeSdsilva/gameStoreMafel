@@ -2,10 +2,13 @@ package com.storegame.mafil.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import com.storegame.mafil.entities.Game;
+import com.storegame.mafil.entities.Genre;
+import com.storegame.mafil.entities.Platform;
 
 public class GameDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -19,10 +22,10 @@ public class GameDTO implements Serializable {
 	private Integer qtdStok;
 	private Double metacriticNote;
 	private Instant dateLanc;
-	
-	private Set<GenreDTO> genres = new HashSet<>();
 
-	private Set<PlatformDTO> platforms = new HashSet<>();
+	private List<GenreDTO> genres = new ArrayList<>();
+
+	private List<PlatformDTO> platforms = new ArrayList<>();
 
 	public GameDTO() {
 	}
@@ -50,6 +53,12 @@ public class GameDTO implements Serializable {
 		qtdStok = entity.getQtdStok();
 		metacriticNote = entity.getMetacriticNote();
 		dateLanc = entity.getDateLanc();
+	}
+	
+	public GameDTO(Game entity, Set<Genre> genres, Set<Platform> platforms) {
+		this(entity);
+		genres.forEach(genre -> this.genres.add(new GenreDTO(genre)));
+		platforms.forEach(plat -> this.platforms.add(new PlatformDTO(plat)));
 	}
 
 	public Long getId() {
@@ -124,11 +133,11 @@ public class GameDTO implements Serializable {
 		this.dateLanc = dateLanc;
 	}
 
-	public Set<GenreDTO> getGenres() {
+	public List<GenreDTO> getGenres() {
 		return genres;
 	}
 
-	public Set<PlatformDTO> getPlatforms() {
+	public List<PlatformDTO> getPlatforms() {
 		return platforms;
 	}
 }
