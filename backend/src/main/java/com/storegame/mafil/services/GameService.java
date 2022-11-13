@@ -9,8 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.storegame.mafil.dto.GameDTO;
+import com.storegame.mafil.dto.GenreDTO;
+import com.storegame.mafil.dto.PlatformDTO;
 import com.storegame.mafil.entities.Game;
+import com.storegame.mafil.entities.Genre;
+import com.storegame.mafil.entities.Platform;
 import com.storegame.mafil.repositories.GameRepository;
+import com.storegame.mafil.repositories.GenreRepository;
+import com.storegame.mafil.repositories.PlatformRepository;
 import com.storegame.mafil.services.exceptions.DatabaseException;
 import com.storegame.mafil.services.exceptions.ResourceNotFoundException;
 
@@ -19,6 +25,12 @@ public class GameService {
 
 	@Autowired
 	private GameRepository gameRepository;
+
+	@Autowired
+	private GenreRepository genreRepositoy;
+
+	@Autowired
+	private PlatformRepository platRepositoy;
 
 	@Transactional(readOnly = true)
 	public Page<GameDTO> findAllPaged(Pageable pageable) {
@@ -73,6 +85,18 @@ public class GameService {
 		entity.setQtdStok(gameDto.getQtdStok());
 		entity.setMetacriticNote(gameDto.getMetacriticNote());
 		entity.setDateLanc(gameDto.getDateLanc());
+
+		entity.getGenres().clear();
+		for (GenreDTO gen : gameDto.getGenres()) {
+			Genre genre = genreRepositoy.getReferenceById(gen.getId());
+			entity.getGenres().add(genre);
+		}
+
+		entity.getPlatforms().clear();
+		for (PlatformDTO plat : gameDto.getPlatforms()) {
+			Platform platform = platRepositoy.getReferenceById(plat.getId());
+			entity.getPlatforms().add(platform);
+		}
 
 	}
 }
