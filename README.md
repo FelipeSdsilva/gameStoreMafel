@@ -1,6 +1,8 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/FelipeSdsilva/gameStoreMafel?style=plastic)
 # Game Store GamesOn
 
-#Sobre este projeto
+# Sobre este projeto
+![GitHub](https://img.shields.io/github/license/FelipeSdsilva/gameStoreMafel)
 
 https://game-on-omega.vercel.app/(Front-End)(https://github.com/MatheusOsterno/game-store-mf)
 https://mafil-felipeback.herokuapp.com/swagger-ui/index.html(Back-End)
