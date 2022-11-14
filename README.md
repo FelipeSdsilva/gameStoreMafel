@@ -10,7 +10,7 @@ https://mafil-felipeback.herokuapp.com/swagger-ui/index.html(Back-End)
 
 Este trabalho foi em conjunto com Matheus Osterno na parte de front-End da loja GamesOn, e na parte de back-End foi desenvolvido por mim onde foi feito,
 um CRUD de Games que contem plataformas e generos.
-Link para repositório do DEV Matheus Osterno (https://github.com/MatheusOsterno/game-store-mf)  responsável pela parte do front-End.
+Link para repositório do DEV Matheus Osterno (https://github.com/MatheusOsterno)  responsável pela parte do front-End.
 
 # Layout Desktop 
 
