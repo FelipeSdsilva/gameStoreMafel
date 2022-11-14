@@ -46,8 +46,8 @@ public class GenreResource {
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<GenreDTO> updateGenre(@PathVariable Long id, GenreDTO genreDto) {
-		genreDto = genService.findById(id);
+	public ResponseEntity<GenreDTO> updateGenre(@PathVariable Long id,@RequestBody GenreDTO genreDto) {
+		genreDto = genService.updateGenre(id,genreDto);
 		return ResponseEntity.ok().body(genreDto);
 	}
 
