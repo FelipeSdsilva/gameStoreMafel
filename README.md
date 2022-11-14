@@ -41,6 +41,8 @@ Baseado no ManyToMany pois um game tem N generos e N plataforams.
 ## Front-End (Matheus Osterno)
   - HTML / CSS / JS / TypeScript
   - Vue.js
+  - Quasar
+  - Axios
 
 ## Back-End(Felipe Sousa)
   - Java 17
@@ -80,7 +82,7 @@ git clone https://github.com/MatheusOsterno/game-store-mf
 npm install
 
 #executar o projeto.
-npm run
+npm run server
 
 ```
 
