@@ -4,9 +4,13 @@
 # Sobre este projeto
 ![GitHub](https://img.shields.io/github/license/FelipeSdsilva/gameStoreMafel)
 
-https://game-on-omega.vercel.app/(Front-End)(https://github.com/MatheusOsterno/game-store-mf)
+## Deploy (Front-End)
 
-https://mafil-felipeback.herokuapp.com/swagger-ui/index.html(Back-End)
+https://game-on-omega.vercel.app/
+
+## Deploy (Back-End)
+
+https://mafil-felipeback.herokuapp.com/swagger-ui/index.html
 
 Este trabalho foi em conjunto com Matheus Osterno na parte de front-End da loja GamesOn, e na parte de back-End foi desenvolvido por mim onde foi feito,
 um CRUD de Games que contem plataformas e generos.
